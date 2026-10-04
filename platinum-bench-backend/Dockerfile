@@ -1,5 +1,5 @@
 FROM eclipse-temurin:25-jdk AS build
-WORKDIR /app
+WORKDIR ./platinum-bench-backend
 
 COPY gradlew ./
 COPY gradle gradle
