@@ -1,0 +1,25 @@
+package com.platinumbench.configurations;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
+
+@Configuration
+public class CorsConfig{
+    @Bean
+    public WebMvcConfigurer corsConfigurer(){
+        return new WebMvcConfigurer(){
+            @Override
+            public void addCorsMapping(CorsRegistry registry){
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:5173","https://platinumbench.com")
+                        .allowedMethods("GET","POST","UPDATE","DELETE","OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true)
+                        .maxAge(3600);
+            }
+        };
+    }
+}
