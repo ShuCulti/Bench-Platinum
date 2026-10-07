@@ -1,0 +1,24 @@
+.navbar{
+    psotion:sticky;
+    z-index: 100;
+    display: flex;
+    column-gap: 100px;
+    background-color: black;
+    width: 100vw;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage-navbar-btn{
+
+}
+
+.homepage-navbar-btn:hover{
+    color: #00ff9d;
+    cursor: pointer;
+}
+
+.homepage-navbar-btn:focus{
+
+}

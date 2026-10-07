@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/platinum-bench-backend/src/main/java/com/platinumbench/logic/impl" vcs="Git" />
   </component>
 </project>

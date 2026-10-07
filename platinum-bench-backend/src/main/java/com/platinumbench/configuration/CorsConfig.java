@@ -1,4 +1,4 @@
-package com.platinumbench.configurations;
+package com.platinumbench.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ public class CorsConfig{
     public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer(){
             @Override
-            public void addCorsMapping(CorsRegistry registry){
+            public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:5173","https://platinumbench.com")
                         .allowedMethods("GET","POST","UPDATE","DELETE","OPTIONS")
