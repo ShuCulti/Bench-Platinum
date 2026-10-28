@@ -5,7 +5,6 @@ import com.platinumbench.domain.Model;
 import com.platinumbench.persistence.ModelJpaRepository;
 import com.platinumbench.persistence.entity.ModelEntity;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
@@ -47,7 +46,7 @@ public class ModelRepositoryImpl implements ModelRepository{
                 entity.getId(),
                 entity.getName(),
                 entity.getFamily(),
-                ((int) entity.getParameterB())
+                entity.getParameterB()
         );
     }
 

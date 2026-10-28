@@ -14,8 +14,9 @@ public class Contributor{
     private Long id;
     private String displayName;
     private String tokenHash;
-    private boolean revoked;
-    private LocalDateTime registeredAt;
+    private String status;
+    private LocalDateTime createdAt;
+    private LocalDateTime revokedAt;
     
 }
 

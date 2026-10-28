@@ -28,8 +28,8 @@ public class ContributorService {
     public Contributor create(CreateContributorRequest request) {
         Contributor contributor = Contributor.builder()
                 .displayName(request.getDisplayName())
-                .revoked(false)
-                .registeredAt(LocalDateTime.now())
+                .status("ACTIVE")
+                .createdAt(LocalDateTime.now())
                 .build();
 
         return contributorRepository.create(contributor);

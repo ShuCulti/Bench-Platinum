@@ -1,12 +1,15 @@
 package com.platinumbench.domain;
 
 import lombok.Getter;
-import lombok.Setter;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@NoArgsConstructor
+import java.math.BigDecimal;
+
+import lombok.AllArgsConstructor;
+
 @AllArgsConstructor
+@NoArgsConstructor 
 @Getter
 @Setter
 
@@ -14,5 +17,5 @@ public class Model {
     private Long id;
     private String name;
     private String family;
-    private int parameterB;
+    private BigDecimal parameterB;
 }

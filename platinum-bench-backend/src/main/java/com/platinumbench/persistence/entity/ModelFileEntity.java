@@ -1,34 +1,37 @@
 package com.platinumbench.persistence.entity;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
-import org.springframework.data.convert.EntityConverter;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name= "model_files")
+@Table(name= "model_file")
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor 
+
+/* Hello  */
 
 public class ModelFileEntity{
 
     @Id
+    @Column(name = "model_file_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private Long modelId;
 
-    @Column
+    @Column(nullable = false)
     private String quant;
 
-    @Column
-    private Long size_bytes;
+    @Column(nullable = false)
+    private Long sizeBytes;
 
-    @Column
+    @Column(nullable = false, unique = true, length = 64)
     private String sha256;
 
 }

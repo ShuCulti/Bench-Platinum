@@ -6,9 +6,15 @@ on:
   pull_request:
     branches: [ main ]
 
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory:
+          platinum-bench-backend
 
     steps:
       - name: Check out code
@@ -22,10 +28,14 @@ jobs:
           cache: gradle
 
       - name: Make gradlew executable
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
+        working-directory:
+          platinum-bench-backend
 
       - name: Build and run tests
         run: ./gradlew build --no-daemon
+        working-directory:
+          platinum-bench-backend
 
   docker-build:
     runs-on: ubuntu-latest
@@ -36,4 +46,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t platinum-bench-backend .
+        run: docker build -t platinum-bench-backend ./platinum-bench-backend

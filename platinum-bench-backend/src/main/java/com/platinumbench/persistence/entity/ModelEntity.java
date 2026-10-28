@@ -1,10 +1,11 @@
 package com.platinumbench.persistence.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.AllArgsConstructor;
 
 @Entity
 @Table(name= "model")
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 public class ModelEntity{
 
     @Id
+    @Column(name= "model_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -24,5 +26,6 @@ public class ModelEntity{
     @Column(nullable = false)
     private String family;
 
-    private double parameterB;
+    @Column(nullable= false, precision = 6, scale = 2)
+    private BigDecimal parameterB;
 }

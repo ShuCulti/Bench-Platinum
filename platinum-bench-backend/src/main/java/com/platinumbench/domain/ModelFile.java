@@ -11,10 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class ModelFile{
-    Long id;
-    Long modelId;
-    String quant;
-    String sizeBytes;
-
-    
+    private Long id;
+    private Long modelId;
+    private String quant;
+    private Long sizeBytes;
+    private String sha256;    
 }
