@@ -38,5 +38,7 @@ out/
 
 .env
 
+/platinum-bench-backend/.sonar
+
 Claude outputs
 Boss outputs

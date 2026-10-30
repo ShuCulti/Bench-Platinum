@@ -1,7 +1,9 @@
 plugins {
 	id 'java'
+	id 'jacoco'
 	id 'org.springframework.boot' version '4.1.1'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.sonarqube' version '7.5.0.8588'
 }
 
 group = 'com.platinumbench'
@@ -30,4 +32,27 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
+sonar{
+	properties{
+		property 'sonar.projectKey', 'ShuCulti_Bench-Platinum'
+		property 'sonar.organization', 'shuculti'
+		property 'sonar.host.url', 'https://sonarcloud.io'
+	}
+}
+
+jacoco{
+	toolVersion = '0.8.14'
+}
+
+jacocoTestReport{
+	reports {
+		xml.required = true
+	}
+}
+
+tasks.named("sonar") {
+	dependsOn 'jacocoTestReport'
 }
