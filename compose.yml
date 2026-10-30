@@ -1,5 +1,6 @@
 services:
   db:
+    restart: unless-stopped
     image: postgres:17
     environment:
       POSTGRES_DB: platinum_bench
@@ -15,6 +16,7 @@ services:
       retries: 10
       
   backend:
+    restart: unless-stopped
     build: ./platinum-bench-backend
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/platinum_bench
