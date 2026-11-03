@@ -1,0 +1,39 @@
+# Server stack for the EduCloud VM.
+# Same services as compose.yml, but the backend comes from the image CI pushed
+# to GHCR instead of being built here, and the database port isn't published.
+#   docker compose -f compose.prod.yml up -d
+#
+# name is pinned so the volume stays bench-platinum_pgdata (the one the VM
+# already has), no matter which folder this file is run from.
+name: bench-platinum
+
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: platinum_bench
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is not set, check .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "platinum_bench"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    # BACKEND_TAG lets you pin an older build (a commit SHA) to roll back.
+    image: ghcr.io/shuculti/platinum-bench-backend:${BACKEND_TAG:-latest}
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/platinum_bench
+      DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is not set, check .env}
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

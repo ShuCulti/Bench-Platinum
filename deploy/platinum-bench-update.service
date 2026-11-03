@@ -1,0 +1,10 @@
+[Unit]
+Description=Platinum Bench: pull new images from GHCR and redeploy
+Wants=network-online.target docker.service
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Bench-Platinum
+ExecStart=/bin/bash /home/ubuntu/Bench-Platinum/deploy/update.sh
