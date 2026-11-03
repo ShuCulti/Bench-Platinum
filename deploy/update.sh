@@ -20,9 +20,26 @@ running_image() {
   fi
 }
 
+# Image ID that the backend's tag (e.g. :latest) points to on this machine.
+newest_image() {
+  local id ref
+  id=$(compose ps -q backend)
+  [ -n "$id" ] || { echo none; return; }
+  ref=$(docker inspect --format '{{.Config.Image}}' "$id")
+  docker image inspect --format '{{.Id}}' "$ref"
+}
+
 before=$(running_image)
 compose pull --quiet
 compose up -d
+
+# `up -d` doesn't always notice that a tag now points to a newer image, and
+# then leaves the old container running. So compare the IDs ourselves and
+# force a recreate of just the backend when they differ.
+if [ "$(running_image)" != "$(newest_image)" ]; then
+  compose up -d --force-recreate --no-deps backend
+fi
+
 after=$(running_image)
 
 if [ "$before" != "$after" ]; then

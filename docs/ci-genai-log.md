@@ -48,3 +48,22 @@ Flip the direction. CI publishes an image, the server pulls it. Claude compared 
 - [NOTE: Kill the backend with `docker compose -f compose.prod.yml stop backend` and check whether the timer reports the failure within 5 minutes. Then `start` it again.]
 - [NOTE: Is the deploy actually "continuous"? Push a small visible change and time how long until it's live on the VM.]
 - [NOTE: Anything you changed or would do differently, and why. For example: the script runs as `ubuntu`, which is in the docker group, so effectively root. Is a dedicated deploy user worth it here?]
+
+## 2026-11-03 (evening): the first real deploy didn't happen
+
+### What went wrong
+
+I pushed a small backend change (`ca80b89`) to test CD. CI went green and pushed the image, and the timer kept logging "health check passed" every 5 minutes. But comparing image IDs on the VM showed the backend container was still running the *old* image. `:latest` on the VM pointed at the new one (`63b6...`), the container ran `26e5...`, and the journal never once said "deployed new backend image".
+
+### Why
+
+The generated script assumed `docker compose up -d` recreates a container when its tag points to a newer image after a `pull`. On this VM it didn't: every run said `Container bench-platinum-backend-1 Running`. And the health check didn't catch it, because the *old* backend was healthy. It checked "is something up", not "is the new version up".
+
+### What Claude changed
+
+`deploy/update.sh` now compares the running container's image ID with the ID its tag points to after the pull, and if they differ runs `docker compose up -d --force-recreate --no-deps backend`. That recreates only the backend, without touching the database.
+
+### My review
+
+[NOTE: This is the most useful entry for the critical-view part of LO3. The generated pipeline looked green at every step and still didn't deploy. Write down how you found it (comparing image IDs instead of trusting the log) and what that says about checking generated work.]
+[NOTE: Still open: the health check can't tell old and new versions apart. Is that worth fixing, e.g. by having the app report its commit SHA?]
