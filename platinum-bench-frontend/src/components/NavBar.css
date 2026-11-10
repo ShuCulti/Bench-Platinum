@@ -1,24 +1,75 @@
 .navbar{
-    psotion:sticky;
+    position: sticky;
+    top: 0;
     z-index: 100;
     display: flex;
-    column-gap: 100px;
-    background-color: black;
-    width: 100vw;
-    height: 8vh;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    height: 64px;
+    padding: 0 80px;
+    background-color: #09090b;
+    border-bottom: 1px solid #27272a;
 }
 
-.homepage-navbar-btn{
-
-}
-
-.homepage-navbar-btn:hover{
-    color: #00ff9d;
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fafafa;
     cursor: pointer;
 }
 
-.homepage-navbar-btn:focus{
+.navbar-logo-slash{
+    color: #a1a1aa;
+}
 
+.navbar-links{
+    display: flex;
+    gap: 40px;
+    height: 100%;
+}
+
+.navbar-btn{
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #a1a1aa;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.navbar-btn:hover{
+    color: #00ff9d;
+}
+
+.navbar-btn-active{
+    color: #00ff9d;
+    border-bottom-color: #00ff9d;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar-myruns{
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid #27272a;
+    background-color: transparent;
+    color: #fafafa;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.navbar-myruns:hover{
+    border-color: #00ff9d;
+    color: #00ff9d;
 }

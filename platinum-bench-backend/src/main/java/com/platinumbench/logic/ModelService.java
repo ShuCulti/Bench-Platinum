@@ -7,6 +7,7 @@ import com.platinumbench.persistence.*;
 import com.platinumbench.domain.*;
 
 import org.springframework.stereotype.Service;
+import java.util.stream.Stream;
 
 @Service 
 public class ModelService{
@@ -25,8 +26,9 @@ public class ModelService{
         return modelRepository.getById(id);
     }
 
-    public Optional<Model> getModelByName(String name){
-        return modelRepository.getByName(name);
+    public List<Model> getModelByName(String name){
+        List<Model> listWithModelByName = modelRepository.getByName(name).stream().toList();
+        return listWithModelByName;
     }
 
     public Model createModel(Model model){

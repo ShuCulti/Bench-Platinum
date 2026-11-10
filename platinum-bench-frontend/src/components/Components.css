@@ -1,0 +1,137 @@
+/* Shared classes used by more than one page */
+
+.page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-main{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.page-title{
+    margin: 0 0 8px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.page-subtitle{
+    margin: 0;
+    max-width: 640px;
+    color: #a1a1aa;
+    line-height: 1.6;
+}
+
+.btn-primary{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 0;
+    background-color: #00ff9d;
+    color: #000000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    background-color: #5effc0;
+}
+
+.btn-primary:disabled{
+    background-color: transparent;
+    border: 1px solid #27272a;
+    color: #a1a1aa;
+    cursor: not-allowed;
+}
+
+.btn-secondary{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid #27272a;
+    background-color: #121214;
+    color: #fafafa;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-secondary:hover{
+    border-color: #00ff9d;
+}
+
+.card{
+    border: 1px solid #27272a;
+    background-color: #121214;
+    padding: 24px;
+}
+
+.select-label{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #a1a1aa;
+}
+
+.select{
+    min-height: 44px;
+    padding: 0 12px;
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    color: #fafafa;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.table-wrapper{
+    overflow-x: auto;
+    border: 1px solid #27272a;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.table th{
+    padding: 14px 16px;
+    background-color: #121214;
+    border-bottom: 1px solid #27272a;
+    color: #a1a1aa;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.table td{
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(39, 39, 42, 0.6);
+}
+
+.table-right{
+    text-align: right !important;
+}

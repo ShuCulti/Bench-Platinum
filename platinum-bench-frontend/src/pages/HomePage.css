@@ -1,0 +1,327 @@
+.HomePage-hero{
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 96px 80px 112px;
+    border-bottom: 1px solid #27272a;
+}
+
+.HomePage-hero-copy{
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.HomePage-badge{
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    border-radius: 999px;
+    background-color: rgba(0, 255, 157, 0.08);
+    color: #00ff9d;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.HomePage-title{
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 104px;
+    font-weight: 700;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.HomePage-title-gradient{
+    background: linear-gradient(90deg, #00ff9d, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.HomePage-intro{
+    margin: 0;
+    max-width: 560px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #a1a1aa;
+}
+
+.HomePage-hero-buttons{
+    display: flex;
+    gap: 16px;
+}
+
+/* Terminal card */
+.HomePage-terminal{
+    flex: 1 1 0;
+    border: 1px solid #27272a;
+    background-color: #121214;
+    padding: 0 24px;
+}
+
+.HomePage-terminal-bar{
+    height: 3px;
+    background: linear-gradient(90deg, #00ff9d, #8b5cf6, #00ff9d);
+}
+
+.HomePage-terminal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 16px;
+    border-bottom: 1px solid #27272a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #a1a1aa;
+}
+
+.HomePage-terminal-dots{
+    display: flex;
+    gap: 8px;
+}
+
+.HomePage-terminal-dots span{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #27272a;
+}
+
+.HomePage-terminal-output{
+    padding: 20px 0;
+}
+
+.HomePage-terminal-line{
+    margin: 0 0 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.HomePage-terminal-prompt{
+    color: #00ff9d;
+}
+
+.HomePage-terminal-label{
+    color: #a1a1aa;
+}
+
+.HomePage-terminal-accent{
+    color: #a78bfa;
+}
+
+.HomePage-terminal-done{
+    color: #00ff9d;
+}
+
+.HomePage-terminal-results{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 16px 0 24px;
+    border-top: 1px dashed #27272a;
+}
+
+.HomePage-terminal-result-label{
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #a1a1aa;
+    text-transform: uppercase;
+}
+
+.HomePage-terminal-result,
+.HomePage-terminal-result-big{
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.HomePage-terminal-result-big{
+    font-size: 40px;
+}
+
+.HomePage-terminal-result span,
+.HomePage-terminal-result-big span{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #a1a1aa;
+}
+
+/* Sections */
+.HomePage-section{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 64px 80px;
+    border-bottom: 1px solid #27272a;
+}
+
+.HomePage-section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+.HomePage-section-title{
+    margin: 0 0 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.HomePage-section-title-icon{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.HomePage-steps{
+    display: flex;
+    gap: 24px;
+}
+
+.HomePage-step{
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.HomePage-step-number{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #00ff9d;
+}
+
+.HomePage-step-title{
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.HomePage-step-text{
+    margin: 0;
+    color: #a1a1aa;
+    line-height: 1.6;
+}
+
+/* Leaderboard preview */
+.HomePage-leaderboard{
+    padding: 96px 80px;
+    background-color: rgba(18, 18, 20, 0.5);
+}
+
+.HomePage-leaderboard-filters{
+    display: flex;
+    gap: 12px;
+}
+
+.HomePage-leaderboard-row{
+    cursor: pointer;
+}
+
+.HomePage-leaderboard-row:hover{
+    background-color: rgba(0, 255, 157, 0.04);
+}
+
+.HomePage-rank{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    color: #a1a1aa;
+}
+
+.HomePage-rank-first{
+    background-color: #00ff9d;
+    color: #000000;
+    font-weight: 700;
+}
+
+.HomePage-hardware{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.HomePage-gen{
+    color: #00ff9d;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.HomePage-tpw{
+    color: #a78bfa;
+}
+
+.HomePage-muted{
+    color: #a1a1aa;
+}
+
+.HomePage-more-link{
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #00ff9d;
+    cursor: pointer;
+}
+
+/* Models */
+.HomePage-models{
+    display: flex;
+    gap: 24px;
+}
+
+.HomePage-model-card{
+    flex: 1 1 0;
+    cursor: pointer;
+}
+
+.HomePage-model-card:hover{
+    border-color: #00ff9d;
+}
+
+.HomePage-model-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.HomePage-model-name{
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.HomePage-model-family{
+    margin: 4px 0 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #a1a1aa;
+    text-transform: uppercase;
+}
+
+.HomePage-model-params{
+    padding: 4px 10px;
+    border: 1px solid #27272a;
+    background-color: #09090b;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+}
