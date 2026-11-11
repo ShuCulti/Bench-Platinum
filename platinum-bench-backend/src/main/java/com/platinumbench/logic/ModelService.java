@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import com.platinumbench.persistence.*;
 import com.platinumbench.domain.*;
+import com.platinumbench.logic.exception.DuplicateModelException;
 
 import org.springframework.stereotype.Service;
-import java.util.stream.Stream;
 
 @Service 
 public class ModelService{
@@ -32,6 +32,12 @@ public class ModelService{
     }
 
     public Model createModel(Model model){
+        Optional<Model> verifiedModelByName = modelRepository.getByName(model.getName());
+
+        if (verifiedModelByName.isPresent()){
+            throw new DuplicateModelException(model.getName());
+        }
+
         return modelRepository.create(model);
     }
 } 

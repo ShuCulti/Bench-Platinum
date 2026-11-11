@@ -8,12 +8,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.platinumbench.controller.dto.CreateModelRequestDto;
 import com.platinumbench.domain.Model;
 import com.platinumbench.logic.ModelService;
+
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -44,9 +48,15 @@ public class ModelController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Model> createModel(Model model){
-        Model created = modelService.createModel(model);
+    @PostMapping
+    public ResponseEntity<Model> createModel(@Valid @RequestBody CreateModelRequestDto model){
+        Model createdModel = new Model(
+            null,
+            model.name(),
+            model.family(),
+            model.parameterB()
+        );
+        Model created = modelService.createModel(createdModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
