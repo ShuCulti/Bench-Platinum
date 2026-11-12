@@ -5,7 +5,6 @@ import { Footer } from "../components/Footer.jsx"
 import "../components/Components.css"
 import "./LeaderboardPage.css"
 
-/* Sample runs until the runs endpoint exists, then this becomes api.get("/runs") in a useEffect */
 const runs = [
     {id: 1042, hardware: "NVIDIA RTX 5070", type: "GPU", vendor: "NVIDIA", quant: "Q4_K_M", gen: 98.4, spread: 1.2, prompt: 2310, tpw: 0.54, by: "ShuCulti", complete: true},
     {id: 1038, hardware: "Apple M3 Max (40c GPU)", type: "Apple", vendor: "Apple", quant: "Q4_K_M", gen: 71.2, spread: 0.6, prompt: 640, tpw: 1.98, by: "mlx_fan", complete: true},

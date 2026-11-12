@@ -58,7 +58,6 @@
     gap: 16px;
 }
 
-/* Terminal card */
 .HomePage-terminal{
     flex: 1 1 0;
     border: 1px solid #27272a;
@@ -156,7 +155,6 @@
     color: #a1a1aa;
 }
 
-/* Sections */
 .HomePage-section{
     display: flex;
     flex-direction: column;
@@ -217,7 +215,6 @@
     line-height: 1.6;
 }
 
-/* Leaderboard preview */
 .HomePage-leaderboard{
     padding: 96px 80px;
     background-color: rgba(18, 18, 20, 0.5);
@@ -282,7 +279,6 @@
     cursor: pointer;
 }
 
-/* Models */
 .HomePage-models{
     display: flex;
     gap: 24px;

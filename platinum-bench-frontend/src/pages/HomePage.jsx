@@ -7,7 +7,6 @@ import "../components/Components.css"
 import "./HomePage.css"
 import api from "../services/api.js"
 
-/* Sample results until the runs endpoint exists */
 const topRuns = [
     {id: 1042, hardware: "NVIDIA RTX 5070", gen: "98.4", tpw: "0.54", power: "182 W"},
     {id: 1038, hardware: "Apple M3 Max (40c GPU)", gen: "71.2", tpw: "1.98", power: "36 W"},
