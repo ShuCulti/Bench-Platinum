@@ -35,7 +35,7 @@ public class EngineService {
         
 
         if (engineExists.isPresent()){
-            throw new DuplicateEngineException();
+            throw new DuplicateEngineException(engine.getName(), engine.getVersion());
         }
 
         return engineRepository.create(engine);
@@ -51,7 +51,7 @@ public class EngineService {
         }
 
         if (engineByNameExists.isPresent() && !engineByNameId.equals(id)){
-            throw new DuplicateEngineException(engineByNameId);
+            throw new DuplicateEngineException(engine.getName(), engine.getVersion());
         }
 
         return engineRepository.update(engine);

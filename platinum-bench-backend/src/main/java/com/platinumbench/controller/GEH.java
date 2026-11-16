@@ -19,19 +19,6 @@ public class GEH {
     public ProblemDetail handleDuplicateModel(DuplicateModelException ex){
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
     }
-    
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ProblemDetail handleValidation(MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-
-        for (FieldError error : ex.getBindingResult().getFieldErrors()) {
-            errors.put(error.getField(), error.getDefaultMessage());
-        }
-
-        ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, "Validation failed");
-        problem.setProperty("errors", errors);
-        return problem;
-    }
 
     @ExceptionHandler(ModelNotFoundException.class)
     public ProblemDetail handleModelNotFound(ModelNotFoundException ex){
