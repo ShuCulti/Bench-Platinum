@@ -41,6 +41,18 @@ public class ModelRepositoryImpl implements ModelRepository{
         return toDomain(saved);
     }
 
+    @Override 
+    public void delete(Long id){
+        jpa.deleteById(id);
+
+    }
+
+    @Override 
+    public Model update(Model model){
+        ModelEntity updated = jpa.save(toEntity(model));
+        return toDomain(updated);
+    }
+
     private Model toDomain(ModelEntity entity){
         return new Model(
                 entity.getId(),
@@ -52,6 +64,7 @@ public class ModelRepositoryImpl implements ModelRepository{
 
     private ModelEntity toEntity(Model model){
         ModelEntity entity = new ModelEntity();
+        entity.setId(model.getId());
         entity.setName(model.getName());
         entity.setFamily(model.getFamily());
         entity.setParameterB(model.getParameterB());

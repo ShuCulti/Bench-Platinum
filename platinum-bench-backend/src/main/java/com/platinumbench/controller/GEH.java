@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.platinumbench.logic.exception.DuplicateModelException;
+import com.platinumbench.logic.exception.ModelNotFoundException;
 
 @RestControllerAdvice 
 public class GEH {
@@ -32,5 +33,9 @@ public class GEH {
         return problem;
     }
 
+    @ExceptionHandler(ModelNotFoundException.class)
+    public ProblemDetail handleModelNotFound(ModelNotFoundException ex){
+        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
 }
 

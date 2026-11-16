@@ -9,5 +9,7 @@ public interface ModelRepository {
     Optional<Model> getById(Long id);
     Optional<Model> getByName(String name);
     Model create(Model model);
+    Model update(Model model);
+    void delete(Long id);
 
 }
